@@ -22,7 +22,7 @@ export default function Home({ cart }) {
       </Head>
 
       <div className="max-w-6xl mx-auto p-4 md:p-8">
-        {/* HEADER SECTION */}
+    
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
           <div>
             <h1 className="text-4xl font-black text-gray-900 tracking-tight">Your Cart</h1>
@@ -31,7 +31,6 @@ export default function Home({ cart }) {
           <CheckoutSteps step={1} />
         </div>
 
-        {/* TOP ORDER SUMMARY BAR - Glassmorphism style */}
         <div className="bg-white/80 backdrop-blur-md sticky top-4 z-30 rounded-3xl shadow-xl shadow-green-900/5 border border-white p-6 mb-8 flex flex-col md:flex-row justify-between items-center gap-6 group">
           <div className="flex gap-8 items-center overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
             <div className="flex flex-col">
@@ -59,7 +58,7 @@ export default function Home({ cart }) {
           </button>
         </div>
 
-        {/* SAVINGS BOX - Impact focused */}
+      
         <div className="bg-gradient-to-r from-green-600 to-[#15803d] p-[1px] rounded-3xl mb-10 overflow-hidden shadow-lg shadow-green-100">
           <div className="bg-white rounded-[23px] p-6 flex items-center gap-6 relative overflow-hidden">
             <div className="absolute -right-4 -top-4 text-8xl opacity-5 pointer-events-none">🌿</div>
@@ -71,7 +70,7 @@ export default function Home({ cart }) {
           </div>
         </div>
 
-        {/* ADDRESS SECTION */}
+       
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <h2 className="font-black text-2xl text-gray-800">Delivery Address</h2>
@@ -94,7 +93,7 @@ export default function Home({ cart }) {
           </div>
         </div>
 
-        {/* ITEM LIST SECTION */}
+    
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-black text-2xl text-gray-800">Review Items</h2>
@@ -143,7 +142,7 @@ export default function Home({ cart }) {
           </div>
         </div>
 
-        {/* FINAL GRAND TOTAL CARD */}
+      
         <div className="bg-white rounded-[40px] border border-gray-100 p-8 md:p-12 shadow-2xl shadow-green-900/5 overflow-hidden relative">
           <div className="absolute right-0 bottom-0 w-64 h-64 bg-[#f0fdf4] rounded-full -mr-20 -mb-20 pointer-events-none blur-3xl"></div>
           
@@ -184,7 +183,7 @@ export default function Home({ cart }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/cart");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/cart`);
   const cart = await res.json();
   return { props: { cart } };
 }
